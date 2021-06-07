@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Searching Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/search_t_css/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style media="screen">
+      pre{
+        font-family: Consolas, monaco, monospace;
+        color:black;
+        font-style: normal;
+        font-size:15px;
+      }
+      samp{
+        font-family: Consolas, monaco, monospace;
+        color: blue;
+        font-weight: bold;
+      }
+       var {
+         font-family: Consolas, monaco, monospace;
+        font-size: 15px;;
+        color:black;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Searching Visualizer</h1>
+    <button style = "position:absolute;left:40px;top:10px;"type="button" name="button" class = " btn btn-outline-primary " onclick="window.history.back()"><i class = "fas fa-arrow-left"></i></button>
+
+    <div class="input_num">
+      <span><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">&lt/&gt </button></span>
+      <span>
+        <span><input class="num" type="text" name="input_taken"></span>
+        <button class="btn btn-primary linear" type="button" name="Linear Search">Linear Search</button>
+        <button class="btn btn-primary binary" type="button" name="Binary Search">Binary Search</button>
+      </span>
+    </div>
+    <div class="row">
+
+      <div class="col-4">
+
+      </div>
+      <div class="col-6 search_display" hidden=true>
+        <span class="searching_margin"> <span class="searching_display"> Searching For: </span><div class="searching_for"> <div class="searching_text"></div> </div> </span>
+        <span> <span class="result_display"> Result: </span> <div class="result_for"> <div class="result_text"></div> </div> </span>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+
+      </div>
+
+      <div class="col-5 index_values" hidden=true>
+        <span class="low_index"> low : <span class="low"></span> </span>
+        <span> mid : <span class="mid"></span> </span>
+        <span> high : <span class="high"></span> </span>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+
+      </div>
+      <div class="index col-4" hidden=true>
+        <span class="index_margin">Index: <div class="index_text"></div> </span>
+      </div>
+      <div class="col-4">
+
+      </div>
+    </div>
+
+    <div id="bars" class="flex-container"></div>
+    <div id="bars_" class="flex-container_"></div>
+
+
+    <div class="full_extra extra_padding">
+
+    </div>
+    <div class="row addBg">
+
+      <div class="col-3">
+        <button class="btn btn-primary newArray" type="button" name="button">New Array</button>
+      </div>
+
+      <div class="col-6 size_speed">
+        <div id="size">Size
+            <input id="size_input" type="range" min="2" max="70" step=1 value=32>
+        </div>
+
+        <div id="speed">
+          Speed: <input id="speed_input" type="range" min="5" max="300" stepDown=10 value=50>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <span> <button class="btn btn-primary ins" type="button" >Instructions</button></span>
+      </div>
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="width:500px;">
+   <div class="offcanvas-header">
+     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Instructions</h5>
+     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+   </div>
+   <div class="offcanvas-body">
+     <p>Select an Algorithm and then select the programming language for code! </p>
+     <p>Eg: Linear -> c++/Java/Python</p>
+     <div class="tabBox">
+  <ul class="tabs">
+    <li><a href="#tab1">Linear Search</a></li>
+    <li><a href="#tab2">Binary search</a></li>
+    <li><a href="#tab3">Tags</a></li>
+  </ul>
+
+
+  <div class="tabContainer">
+
+    <div id="tab1" class="tabContent">
+      <ul class = "tabs_">
+        <!-- <li><a href="#tab4">C</a></li> -->
+        <li><a href="#tab5">C++</a></li>
+        <li><a href="#tab6">JAVA</a></li>
+        <li><a href="#tab7">PYTHON(3.8)</a></li>
+
+      </ul>
+    </div>
+      <div id="tab5" class="tabContent_">
+      <pre>
+C++ code
+<samp>#include &ltiostream&gt</samp>
+<samp>using namespace</samp> std;
+<samp>void</samp> search(<var class = "types">vector</var>&ltint&gt arr, <var class = "types">int</var> <var>search_Element</var>)
+{
+<samp>int</samp> <var>left</var> = 0;
+<samp>int</samp> <var>length</var> = arr.size();
+<samp>int</samp> <var>position</var> = -1;
+<samp>int</samp> <var>right</var> = <var>length</var>- 1;
+
+<samp>for</samp>(<var>left</var> = 0; <var>left</var> <=  <var>right</var>;)
+{
+	<samp>if</samp>(arr[left] == <var>search_Element</var>)
+	{
+		<var>position</var> = <var>left</var>;
+		cout << "Element found in Array at "
+			<< position + 1 << " Position with "
+			<< left + 1 << " Attempt";
+		<samp>break;</samp>
+	}
+	<samp>if</samp> (arr[right] == search_Element)
+	{
+	<var>position</var> = <var>right;</var>
+	cout << "Element found in Array at "
+	<< position + 1 << " Position with "
+	<< length - right << " Attempt";
+			break;
+	}
+ <var>left++</var>;
+ <var>right--</var>;
+}
+	// If element not found
+<samp>if</samp> (<var>position</var> == -1)
+	cout << "Not found in Array with "<< left ;
+}
+// Driver code
+<samp>int</samp> main()
+{
+	<samp>vector&ltint&gt</samp> arr{ 1, 2, 3, 4, 5 };
+	<samp>int</samp> <var>search_Element</var> = 5;
+	// Function call
+	search(arr, <var>search_Element</var>);
+}
+<br/>
+OUTPUT:
+
+<samp>Element found in Array at 5 position</samp>
+</pre>
+    </div>
+
+    <!-- java-linear-->
+
+    <div id="tab6" class="tabContent_">
+      <pre>
+      <p style="color:#AA5500;">
+// Java code for linearly searching x in arr[]. If x
+// is present then return its location, otherwise
+// return -1
+      </p>
+<samp>class</samp> Algo
+{
+<samp>public static int</samp> search(<samp>int</samp> arr[], <samp>int</samp> x)
+{
+<samp>int</samp> n = arr.length;
+<samp>for</samp> (<samp>int</samp> i = 0; i < n; i++)
+{
+  <samp>if</samp> (arr[i] == x)
+	<samp>return</samp> i;
+}
+	<samp>return</samp> -1;
+}
+<p style="color:#AA5500;">// Driver code</p>
+<samp>public static void</samp> main(String args[])
+{
+<samp>int</samp> arr[] = { 2, 3, 4, 10, 40 };
+<samp>int</samp> x = 10;
+<p style="color:#AA5500;">// Function call</p>
+<samp>int</samp> result = search(arr, x);
+<samp>if</samp> (result == -1)
+<var>System.out.print</var>System.out.print(
+"Element is not present in array");
+<samp>else</samp>
+<var>System.out.print</var>("Element is present at index "+ result);
+	}
+}
+
+      </pre>
+    </div>
+<!--python-linear-->
+    <div id="tab7" class="tabContent_">
+      <pre>
+<samp>def</samp> <samp style = "color:#3D0DAE;">search</samp>(arr, n, x):
+
+	<samp>for</samp> i <samp>in</samp> <samp style = "color: purple;">range</samp>(0, n):
+		<samp>if</samp>(<var>arr</var>[i] == <var>x</var>):
+			return i
+	 return -1
+
+
+# Driver Code
+<var>arr</var> = [2, 3, 4, 10, 40]
+<var>x</var> = 10
+<var>n</var> = len(arr)
+
+# Function call
+<var>result</var> = <samp style = "color:#3D0DAE;">search</samp>(<var>arr,n,x</var>)
+<samp>if</samp>(<var>result</var> == -1):
+	<samp>print</samp>("Element is not present in array")
+<samp>else</samp>:
+	<samp>print</samp>("Element is present at index", result)
+
+      </pre>
+    </div>
+
+
+    <div id="tab2" class="tabContent">
+
+      <ul class = "tabs_">
+        <!-- <li><a href="#tab4">C</a></li> -->
+        <li><a href="#tab8">C++</a></li>
+        <li><a href="#tab9">JAVA</a></li>
+        <li><a href="#tab10">PYTHON(3.8)</a></li>
+
+      </ul>
+    </div>
+      <div id="tab8" class="tabContent_">
+      <pre>
+C++ code
+<samp>#include &ltiostream&gt</samp>
+
+<samp>int</samp> binarySearch(<samp>int</samp> <var>array[]</var>, <samp>int</samp> <var>x</var>, <samp>int</samp> <var>low</var>, <samp>int</samp> <var>high</var>) {
+  // Repeat until the pointers low and high meet each other
+  <samp>while</samp> (<var>low <= high</var> ) {
+    <samp>int</samp> <var>mid</var> = <var>low + (high - low) / 2;</var>
+
+    <samp>if</samp> (<var>array[mid] == x</var>)
+      <samp>return</samp> <var>mid</var>;
+
+    <samp>if</samp> (<var>array[mid] < x</var>)
+      <var>low = mid + 1;</var>
+
+    <samp>else</samp>
+    <var>high = mid - 1;</var>
+  }
+
+  <samp>return</samp> -1;
+}
+
+<samp>int</samp> main(<samp>void</samp>) {
+  <samp>int</samp> <var>array[]</var> = {3, 4, 5, 6, 7, 8, 9};
+  <samp>int</samp> <var>n</var> = <samp>sizeof</samp>(<var>array</var>) / <samp>sizeof</samp>(<var>array[0]</var>);
+  <samp>int</samp> <var>x</var> = 4;
+  <samp>int</samp> <var>result</var> = binarySearch(<var>array, x, 0, n - 1</var>);
+  <samp>if</samp>(<var>result</var> == -1)
+    <samp>printf</samp>("Not found");
+  <samp>else</samp>
+    <samp>printf</samp>("Element is found at index %d", result);
+  <samp>return</samp> 0;
+}
+</pre>
+    </div>
+
+    <!-- java-linear-->
+
+    <div id="tab9" class="tabContent_">
+      <pre>
+      <samp>class</samp> BinarySearchExample{
+ <samp>public static void</samp> binarySearch(<samp>int</samp> arr[], <samp>int</samp> first, <samp>int</samp> last, <samp>int</samp> key){
+   <samp>int</samp> mid = (first + last)/2;
+   <samp>while</samp>( first <= last ){
+    <samp>if</samp> ( arr[mid] < key ){
+        first = mid + 1;
+      }<samp>else if</samp> ( arr[mid] == key ){
+        System.out.println("Element is found at index: " + mid);
+        <samp>break</samp>;
+      }<samp>else</samp>{
+         last = mid - 1;
+      }
+      mid = (first + last)/2;
+   }
+   <samp>if</samp> ( first > last ){
+      System.out.println("Element is not found!");
+   }
+ }
+ <samp>public static void</samp> main(String args[]){
+        <samp>int</samp> arr[] = {10,20,30,40,50};
+        <samp>int</samp> key = 30;
+        <samp>int</samp> last=arr.<samp>length</samp>-1;
+        binarySearch(arr,0,last,key);
+ }
+}
+</div>
+<!--python-linear-->
+    <div id="tab10" class="tabContent_">
+      <pre>
+def binary_search(list1, n):
+  low = 0
+  high = len(list1) - 1
+  mid = 0
+  while low <= high:
+  # for get integer result
+    mid = (high + low) // 2
+  # Check if n is present at mid
+    if list1[mid] < n:
+      low = mid + 1
+  # If n is greater, compare to the right of mid
+    elif list1[mid] > n:
+      high = mid - 1
+  # If n is smaller, compared to the left of mid
+    else:
+     return mid
+  # element was not present in the list, return -1
+  return -1
+
+
+# Initial list1
+list1 = [12, 24, 32, 39, 45, 50, 54]
+n = 45
+# Function call
+result = binary_search(list1, n)
+if result != -1:
+  print("Element is present at index", str(result))
+else:
+  print("Element is not present in list1")
+</pre>
+    </div>
+
+      <!-- <pre>
+        <code>
+
+
+        </code>
+      </pre> -->
+    </div>
+
+    <div id="tab3" class="tabContent">
+      This would be the tags...
+    </div>
+
+  </div>
+   </div>
+ </div>
+
+      </div>
+
+    <div class="row" id="array_">
+      <div class="col-4">
+
+      </div>
+      <div class="col-4">
+        <div>
+          <span>Array Size :</span> <span class="array_size"></span>
+          <span>Array Speed :</span> <span class="array_speed"></span>
+        </div>
+      </div>
+      <div class="col-4">
+
+      </div>
+    </div>
+
+    <script src="public/searching_t_js/search.js" charset="utf-8"></script>
+    <script src="public/searching_t_js/linear_search.js" charset="utf-8"></script>
+    <script src="public/searching_t_js/binary_search.js" charset="utf-8"></script>
+    <script src="public/searching_t_js/tabs.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

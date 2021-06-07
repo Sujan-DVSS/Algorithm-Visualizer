@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Sorting Visualizer</title>
+    <link rel="icon" href="public/sort_t_css/sort.png" sizes="32x32" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/sort_t_css/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <style media="screen">
+      pre{
+        font-family: Consolas, monaco, monospace;
+        color:black;
+        font-style: normal;
+        font-size:15px;
+      }
+      samp{
+        font-family: Consolas, monaco, monospace;
+        color: blue;
+        font-weight: bold;
+      }
+       var {
+         font-family: Consolas, monaco, monospace;
+        font-size: 15px;;
+        color:black;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1 align="center">Sorting Visualizer</h1>
+    <button style = "position:absolute;left:40px;top:10px;"type="button" name="button" class = " btn btn-outline-primary " onclick="window.history.back()"><i class = "fas fa-arrow-left"></i></button>
+
+    <nav>
+      <div>
+        <div class="row">
+            <div class="col-2 addPadding" id="newArray">
+                <button type="button" class="btn btn-primary newArray">New Array</button>
+            </div>
+            <div class="col-2 addPadding">
+
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> <i class = "fa fa-code"></i></button>
+
+
+            </div>
+
+
+            <div class="col-2" id="input">
+              <span id="size">Size
+                  <input id="size_input" type="range" min="5" max="75" step=1 value=12>
+              </span>
+              <span id="speed">Speed
+                  <input id="speed_input" type="range" min="5" max="300" stepDown=10 value=50>
+              </span>
+            </div>
+            <div class="col-6 gap-2 justify-content-end addPadding">
+                <button type="button" class="btn btn-primary bubbleSort">Bubble Sort</button>
+                <button type="button" class="btn btn-primary selectionSort">Selection Sort</button>
+                <button type="button" class="btn btn-primary insertionSort">Insertion Sort</button>
+                <button type="button" class="btn btn-primary quickSort">Quick Sort</button>
+                <button type="button" class="btn btn-primary mergeSort">Merge Sort</button>
+            </div>
+        </div>
+      </div>
+      <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style="width:500px;">
+      <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Instructions</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+      <p>Select an Algorithm and then select the programming language for code! </p>
+      <p>Eg: Linear -> c++/Java/Python</p>
+      <div class="tabBox">
+      <ul class="tabs">
+      <li><a href="#tab1">Bubble sort</a></li>
+      <li><a href="#tab2">Selection sort</a></li>
+      <li><a href="#tab3">Insertion sort</a></li>
+      <li><a href="#tab4">Quick sort</a></li>
+      <li><a href="#tab5">Merge sort</a></li>
+      </ul>
+
+
+      <div class="tabContainer">
+
+      <div id="tab1" class="tabContent">
+      <ul class = "tabs_">
+      <!-- <li><a href="#tab4">C</a></li> -->
+      <li><a href="#tab6">C++</a></li>
+      <li><a href="#tab7">JAVA</a></li>
+      <li><a href="#tab8">PYTHON(3.8)</a></li>
+
+      </ul>
+      </div>
+      <div id="tab6" class="tabContent_">
+      <pre>
+      //C++ code
+
+#include&ltiostream&gt
+using namespace std;
+void swapping(int &a, int &b) {      //swap the content of a and b
+   int temp;
+   temp = a;
+   a = b;
+   b = temp;
+}
+void display(int *array, int size) {
+   for(int i = 0; i&ltsize; i++)
+      cout &lt&lt array[i] &lt&lt " ";
+   cout &lt endl;
+}
+void bubbleSort(int *array, int size) {
+   for(int i = 0; i&ltsize; i++) {
+      int swaps = 0;         //flag to detect any swap is there or not
+      for(int j = 0; j&ltsize-i-1; j++) {
+         if(array[j] > array[j+1]) {       //when the current item is bigger than next
+            swapping(array[j], array[j+1]);
+            swaps = 1;    //set swap flag
+         }
+      }
+      if(!swaps)
+         break;       // No swap in this pass, so array is sorted
+   }
+}
+int main() {
+   int n;
+   cout << "Enter the number of elements: ";
+   cin >> n;
+   int arr[n];     //create an array with given number of elements
+   cout << "Enter elements:" << endl;
+   for(int i = 0; i&ltn; i++) {
+      cin >> arr[i];
+   }
+   cout << "Array before Sorting: ";
+   display(arr, n);
+   bubbleSort(arr, n);
+   cout << "Array after Sorting: ";
+   display(arr, n);
+}
+      </pre>
+      </div>
+
+      <!-- java-linear-->
+
+      <div id="tab7" class="tabContent_">
+      <pre>
+      <p style="color:#AA5500;">
+      // Java code for linearly searching x in arr[]. If x
+      // is present then return its location, otherwise
+      // return -1
+      </p>
+public class BubbleSortExample {
+static void bubbleSort(int[] arr) {
+  int n = arr.length;
+  int temp = 0;
+ for(int i=0; i < n; i++){
+   for(int j=1; j < (n-i); j++){
+      if(arr[j-1] > arr[j]){
+     //swap elements
+       temp = arr[j-1];
+       arr[j-1] = arr[j];
+      arr[j] = temp;
+   }
+  }
+ }
+}
+public static void main(String[] args) {
+int arr[] ={3,60,35,2,45,320,5};
+System.out.println("Array Before Bubble Sort");
+for(int i=0; i < arr.length; i++){
+  System.out.print(arr[i] + " ");
+  }
+System.out.println();
+bubbleSort(arr);//sorting array elements using bubble sort
+System.out.println("Array After Bubble Sort");
+for(int i=0; i < arr.length; i++){
+   System.out.print(arr[i] + " ");
+    }
+  }
+}
+<br>
+Output:
+
+Array Before Bubble Sort
+3 60 35 2 45 320 5
+Array After Bubble Sort
+2 3 5 35 45 60 320
+      </pre>
+      </div>
+      <!--python-linear-->
+      <div id="tab8" class="tabContent_">
+      <pre>
+        # Creating a bubble sort function
+  def bubble_sort(list1):
+      # Outer loop for traverse the entire list
+      for i in range(0,len(list1)-1):
+          for j in range(len(list1)-1):
+              if(list1[j]>list1[j+1]):
+                  temp = list1[j]
+                  list1[j] = list1[j+1]
+                  list1[j+1] = temp
+      return list1
+
+  list1 = [5, 3, 8, 6, 7, 2]
+  print("The unsorted list is: ", list1)
+  # Calling the bubble sort function
+  print("The sorted list is: ", bubble_sort(list1))
+  Output:
+
+  The unsorted list is:  [5, 3, 8, 6, 7, 2]
+  The sorted list is:  [2, 3, 5, 6, 7, 8]
+      </pre>
+      </div>
+
+
+      <div id="tab2" class="tabContent">
+
+      <ul class = "tabs_">
+      <!-- <li><a href="#tab4">C</a></li> -->
+      <li><a href="#tab9">C++</a></li>
+      <li><a href="#tab10">JAVA</a></li>
+      <li><a href="#tab11">PYTHON(3.8)</a></li>
+
+      </ul>
+      </div>
+      <div id="tab9" class="tabContent_">
+      <pre>
+        // C++ program for implementation of selection sort
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  void swap(int *xp, int *yp)
+  {
+      int temp = *xp;
+      *xp = *yp;
+      *yp = temp;
+  }
+
+  void selectionSort(int arr[], int n)
+  {
+      int i, j, min_idx;
+
+      // One by one move boundary of unsorted subarray
+      for (i = 0; i < n-1; i++)
+      {
+          // Find the minimum element in unsorted array
+          min_idx = i;
+          for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min_idx])
+              min_idx = j;
+
+          // Swap the found minimum element with the first element
+          swap(&arr[min_idx], &arr[i]);
+      }
+  }
+
+  /* Function to print an array */
+  void printArray(int arr[], int size)
+  {
+      int i;
+      for (i=0; i < size; i++)
+          cout << arr[i] << " ";
+      cout << endl;
+  }
+
+  // Driver program to test above functions
+  int main()
+  {
+      int arr[] = {64, 25, 12, 22, 11};
+      int n = sizeof(arr)/sizeof(arr[0]);
+      selectionSort(arr, n);
+      cout << "Sorted array: \n";
+      printArray(arr, n);
+      return 0;
+  }
+
+  Output:
+Sorted array:
+11 12 22 25 64
+      </pre>
+      </div>
+
+      <!-- java-linear-->
+
+      <div id="tab10" class="tabContent_">
+      <pre>
+        // Java program for implementation of Selection Sort
+class SelectionSort
+{
+    void sort(int arr[])
+    {
+        int n = arr.length;
+
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n-1; i++)
+        {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+
+            // Swap the found minimum element with the first
+            // element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    // Prints the array
+    void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i< n; ++i)
+            System.out.print(arr[i]+" ");
+        System.out.println();
+    }
+
+    // Driver code to test above
+    public static void main(String args[])
+    {
+        SelectionSort ob = new SelectionSort();
+        int arr[] = {64,25,12,22,11};
+        ob.sort(arr);
+        System.out.println("Sorted array");
+        ob.printArray(arr);
+    }
+}
+
+Output:
+Sorted array:
+11 12 22 25 64
+      </pre>
+      </div>
+      <!--python-linear-->
+      <div id="tab11" class="tabContent_">
+      <pre>
+        # Python program for implementation of Selection
+  # Sort
+  import sys
+  A = [64, 25, 12, 22, 11]
+
+  # Traverse through all array elements
+  for i in range(len(A)):
+
+      # Find the minimum element in remaining
+      # unsorted array
+      min_idx = i
+      for j in range(i+1, len(A)):
+          if A[min_idx] > A[j]:
+              min_idx = j
+
+      # Swap the found minimum element with
+      # the first element
+      A[i], A[min_idx] = A[min_idx], A[i]
+
+  # Driver code to test above
+  print ("Sorted array")
+  for i in range(len(A)):
+      print("%d" %A[i]),
+
+Output:
+    Sorted array:
+    11 12 22 25 64
+      </pre>
+      </div>
+
+      <!-- <pre>
+      <code>
+
+
+      </code>
+      </pre> -->
+      </div>
+
+      <div id="tab3" class="tabContent">
+      This would be the tags...
+      </div>
+
+      <div id="tab4" class="tabContent">
+      This would be the tags...
+      </div>
+
+      <div id="tab5" class="tabContent">
+      This would be the tags...
+      </div>
+
+      </div>
+      </div>
+      </div>
+
+
+    </nav>
+
+    <div class="row">
+      <div class="col-3 d-sm-flex">
+      </div>
+      <div class="col-4" id="array_">
+        <span>Array Size :</span> <span class="array_size"></span>
+        <span>Array Speed :</span> <span class="array_speed"></span>
+      </div>
+      <div class="col-6">
+
+      </div>
+
+    </div>
+
+
+
+    <div id="bars" class="flex-container"></div>
+    <div id="bars_" class="flex-container"></div>
+    <div id="_bars" class="flex-container"></div>
+    <script src="public/sorting_t_js/tabs.js"></script>
+    <script src="public/sorting_t_js/sorting.js"></script>
+    <script src="public/sorting_t_js/bubble_sort.js"></script>
+    <script src="public/sorting_t_js/insertion_sort.js"></script>
+    <script src="public/sorting_t_js/merge_sort.js"></script>
+    <script src="public/sorting_t_js/quick_sort.js"></script>
+    <script src="public/sorting_t_js/selection_sort.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
+
+  </body>
+</html>

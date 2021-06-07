@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sprint Bajaj MotoCorp - Purchase Entry</title>
+	<script>
+
+		function today(){
+              var x = new Date();
+             document.getElementByID("purchasedate").value = (x.getFullYear()+'-'+("0"+(x.getMonth()+1)).slice(-2)+'-'+("0"+x.getDate()).slice(-2));
+        }
+        today();
+
+		function display(){
+      today();
+            var vechile = document.getElementByID("vechilename").value;
+            var payment = document.getElementByID("paymenttype").value;
+            var res = document.getElementByID("result");
+            var price = 0;
+            if(vechile === "Bajaj Pulsar 160 Ns"){
+              price = 111000;
+            }else if(vechile === "Bajaj Pulsar 200 Ns"){
+              price = 135000;
+            }else if(vechile === "Bajaj Dominar 400"){
+              price = 207000;
+            }
+
+
+
+            var totAmount = price*(130/100);
+            totAmount = Math.round(totAmount);
+
+            res.innerHTML = "An amount of Rs. "+totAmount+", inclusive of tax has been received by "+payment;
+            return false;
+        }
+	</script>
+	<style>
+			input[type="text"] {
+			width: 97%;}
+
+			input[type="number"] {
+			width: 97%;}
+
+			input[type="tel"],select {
+			width: 97%;}
+
+            body{
+			background-color: #cc99ff ;
+    		font-weight: bold;
+			}
+
+    		div{
+    		margin-left: auto;
+    		margin-right: auto;
+            text-align: center;
+    		color: #FF0000;
+    		font-size: 20px;
+    		}
+
+	       h3{
+          /* Fill  the attributes and values */
+          color: #FFFFFF;
+          background-color: #696969
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+          width: 50%;
+          font-family: Verdana;
+          padding: 5px;
+          border-radius: 6px;
+
+	       }
+
+	        table, td, tr{
+		    /* Fill  the attributes and values */
+		    width: 50%;
+		    margin-left: auto;
+		    margin-right: auto;
+		    border:solid 1px;
+		    border-spacing: 1px;
+		    border-radius: 6px;
+		    color: #363730;
+		    background-color: transparent;
+		    padding: 1px;
+
+    		}
+
+            ::-webkit-input-placeholder {
+			color: #696969;
+            font-weight: bold;
+            }
+
+    		#submit{
+			/* Fill  the attributes and values */
+			color: #FFFFFF;
+			background-color: #696969;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 5px;
+			width: 50%;
+			font-family: Verdana;
+			font-weight: bold;
+			border-radius: 6px;
+
+			}
+	</style>
+</head>
+<body>
+<div>
+
+    <h3>Sprint Bajaj MotoCorp - Purchase Entry</h3>
+
+<form onsubmit="return display()">
+
+    <table>
+    	<tr>
+            <td>Purchase Date</td>
+            <td><input type="text" list="purchasedate" name="purchasedate" id="purchasedate" ></tr>
+    	<tr>
+            <td>Customer Name</td>
+            <td><input type="text" name="custname" id="cname" placeholder="Enter the customer name" required></td>
+        </tr>
+    	<tr>
+           <td>Address</td>
+           <td><input type="text" name="address" id="address" placeholder="Enter the address" required rows="4" columns="50"></td>
+       	</tr>
+    	<tr>
+           <td>Phone Number</td>
+    	   <td><input type="text" name="phonenumber" id="phno" placeholder="Enter the phone number" required></td>
+       	</tr>
+     	<tr>
+            <td>Vehicle Name</td>
+    		<td><select id="vechilename" name="vechile">
+
+
+    		     <option value="Bajaj Pulsar 160">Bajaj Pulsar 160</option>
+    		     <option value="Bajaj Pulsar 200 Ns">Bajaj Pulsar 200 </option>
+    		     <option value="Bajaj Dominar 400">Bajaj Pulsar 400</option>
+    		</select>
+    		</td>
+        </tr>
+        <tr>
+            <td>Payment Type</td>
+            <td><select id="paymenttype" name="payment">
+
+                <option value="Card">card</option>
+                <option value="Cash">cash</option>
+
+                </select>
+            </td>
+
+        </tr>
+
+    </table>
+    <p><input type="submit" id="submit" name="submit" /></p>
+<div id="result"> </div>
+<br><br>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/home_css/css/style.css">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style media="screen">
+.vertical-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 500px;
+    }
+    label.required:after {
+        content: "*";
+        color: red;
+      }
+</style>
+    <script>
+
+    AOS.init();
+    </script>
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  </head>
+  <body>
+    <header>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><span style = "font-size: 1.25em;">Algorithm Visualizer</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item list">
+          <a class="nav-link active" aria-current="page" href="#"><span class = "underline" style = "font-size: 1.15em;">Home</span></a>
+        </li>
+        <li class="nav-item list">
+          <a class="nav-link" href="/about"><span class = "underline" style = "font-size: 1.15em;">About us</span></a>
+        </li>
+        <li class="nav-item list">
+          <a class="nav-link" href="#"><span class = "underline" style = "font-size: 1.15em;">Contact us</span></a>
+        </li>
+        <li class="nav-item list">
+          <a class="nav-link" href="#suggestion" tabindex="-1" aria-disabled="true">Suggestions</a>
+        </li>
+        <li class = " nav-item get-started">
+          <a class = "nav-link" href="#service"><span style = "color:white;">Get Started</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  </header>
+
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
+          <h1>Algorithm Visualizer</h1>
+          <h2 >An Animation is worth of million pictures</h2>
+          <a href="#service" class="btn-get-started scrollto">Tour</a>
+        </div>
+        <div class="col-lg-3 order-lg-2">
+          <img src="public/home_css/temp.gif" alt="x"
+          style="width: 300px;
+          position: relative;top :100px; left:150px;">
+        </div>
+        <div class="col-lg-3 order-3 order-lg-3 hero-img">
+          <img src="public/home_css/boy.svg" class="img-fluid animated" alt="svg" style="position: relative; top: 100px;left:120px;">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- End Hero -->
+
+    <!-- <img src="search_temp.gif" alt="s" height="139px" width="300px" style="padding-bottom: 23px;">
+    <img src="sort_temp1.gif" alt="s"
+    style="
+    width: 550px;
+    padding-top: 30px;
+    margin-top: 30px;
+    margin-left: 20px;">
+    <img src="path_temp2.gif" alt="s" style="
+    width: 500px;
+    margin-left: 20px;"> -->
+    <div id="service">
+
+
+    <section class = "section-bg">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Check out the great services we offer</p>
+      </div>
+      <div  class="container">
+
+
+      <div class="row">
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch mycard" data-aos="zoom-in" data-aos-delay="100" >
+      <div  class="card" style="width: 18rem;">
+      <div class = "im1">
+
+        <img src = "public/home_css/capture.PNG"class="card-img-top h" alt="...">
+
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">PATH FINDING</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="/Pathfinding" class="btn btn-primary">This way</a>
+        </div>
+      </div>
+
+
+      </div>
+
+      <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+    <div class="card" style="width: 18rem;">
+      <div class = "im2">
+
+        <img src = "public/home_css/capture1.PNG"class="card-img-top h" alt="...">
+
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">SEARCHING</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="/Searching_selection" class="btn btn-primary">This way</a>
+      </div>
+    </div>
+
+
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+  <div class="card" style="width: 18rem;">
+    <div class = "im3">
+
+      <img src = "public/home_css/capture3.PNG"class="card-img-top h" alt="...">
+
+      </div>
+    <div class="card-body">
+      <h5 class="card-title">SORTING</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="/Sorting_selection" class="btn btn-primary">This way</a>
+    </div>
+  </div>
+
+
+  </div>
+      </div>
+            </div>
+                </div>
+    </section>
+
+<!-- <div class="row" >
+
+<div class="col-lg-6 ">
+
+
+    <section class=" align-items-center justify-content-center  " style="background: #fef8f5;">
+      <form class="vertical-form" action="https://submit-form.com/wc8tAi85" method="post">
+        <div class="contact-form section-title" data-aos="fade-up" style = "padding : 30px;">
+<h2>Suggestions box</h2>
+        <label for="name" class = "required">Name</label>
+        <div class="input-group mb-3">
+
+  <input type="text" class="form-control" placeholder="name" aria-label="name" aria-describedby="basic-addon1">
+</div>
+          <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <label for="message">Message</label>
+  <div class="input-group">
+
+  <textarea class="form-control" aria-label="With textarea" required=""
+    cols="30" rows="3"></textarea>
+</div>
+          <!-- <input type="email" id="email" name="email" placeholder="Email" required="" /> -->
+          <!-- -->
+
+    <section class=" align-items-center justify-content-center" style="background: #fef8f5;position: relative;">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Suggestion box</h2>
+        <h3 style="font-size:1.2rem;">Drop your Suggestions below</h3>
+      </div>
+
+
+      <div class="col-lg-6 col-md-6 col-sm-12 " id = "suggestion">
+      <form class="vertical-form" action="https://submit-form.com/wc8tAi85" method="post">
+        <div class="contact-form section-title  resize" data-aos="fade-up"  style = "padding : 25px; ">
+        <label for="name" class = "required">Name</label>
+        <div class="input-group mb-3">
+
+  <input type="text" class="form-control" placeholder="Name" aria-label="name">
+</div>
+          <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label required">Email address</label>
+    <input type="email" class="form-control" placeholder="algo@xyz.com" id="exampleInputEmail1">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <label for="message" class = "required">Message</label>
+  <div class="input-group">
+
+  <textarea class="form-control" aria-label="With textarea" required=""
+    cols="30" rows="3"></textarea>
+  </div>
+  <div class="" style = "padding-top:15px;">
+    <button type="submit" class="btn btn-outline-dark">Send</button>
+  </div>
+</div>
+</div>
+</div>
+    </section>
+
+<script>
+
+$(document).ready(function(){
+  $('.col-lg.4').hover(
+  function(){
+    $(this).animate({
+      marginTop:"-=1%";
+    },200);
+  },
+
+  function(){
+    $('this').animate({
+      marginTop:"0%"
+    },200);
+  }
+
+);
+});
+
+</script>
+<!-- AOS init-->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script type="text/javascript" src = "index.js">
+
+    </script>
+  </body>
+</html>
